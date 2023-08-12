@@ -77,6 +77,7 @@ public:
         }
         // *******************************************
         // *** TODO: parse buf and control inhook test
+        // *** TIPS: use looper handler request (reduce the filesystem time use)
         // *******************************************
         LogI("Recv data: %s\n", buf);
         return size;
