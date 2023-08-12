@@ -1,0 +1,20 @@
+# Config File System Document
+
+The config file system is a memory based file system primarily designed to facilitate
+the management of configuration information in projects.
+
+There is a ConfigManager inside it that automatically configures and executes
+the corresponding process for another process or itself when configuration information
+is writed.
+
+## How to run
+
+### Install needed tools
+apt install cmake clang clang++ make libfuse3-dev
+
+### Build project
+cmake .
+make
+
+### Run project
+./confs
