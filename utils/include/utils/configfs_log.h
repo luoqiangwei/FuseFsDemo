@@ -9,12 +9,12 @@
 
 // Output more detailed information, very large quantity!
 #ifndef VERBOSE_DEBUG
-#define VERBOSE_DEBUG 1
+#define VERBOSE_DEBUG 0
 #endif
 
 // Control whether DEBUG is effective
-#ifndef MIUIDEBUG
-#define MIUIDEBUG 1
+#ifndef FS_DEBUG
+#define FS_DEBUG 0
 #endif
 
 // Encapsulate a generic logging function.
@@ -30,7 +30,7 @@
     #define LogI(format, ...) \
         __android_log_print(ANDROID_LOG_INFO, LOG_TAG, format, ##__VA_ARGS__)
     #define LogD(format, ...) \
-        if(MIUIDEBUG) __android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, "[MIUIBPFDEBUG] " format, ##__VA_ARGS__)
+        if(FS_DEBUG) __android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, "[CONFIG_FS_DEBUG] " format, ##__VA_ARGS__)
 #elif defined(__Linux__)
     // Log output method on Linux base platform.
     #include <syslog.h>
@@ -41,7 +41,7 @@
     #define LogI(format, ...) \
         syslog(LOG_INFO, "[%s] " format, LOG_TAG, ##__VA_ARGS__)
     #define LogD(format, ...) \
-        if(MIUIDEBUG) syslog(LOG_DEBUG, "[MIUIBPFDEBUG] [%s] " format, LOG_TAG, ##__VA_ARGS__)
+        if(FS_DEBUG) syslog(LOG_DEBUG, "[CONFIG_FS_DEBUG] [%s] " format, LOG_TAG, ##__VA_ARGS__)
 #else
     // Universal log output method, supported by any system.
     #include <stdio.h>
@@ -52,5 +52,5 @@
     #define LogI(format, ...) \
         printf("[%s] [%s] " format "\n", "INFO", LOG_TAG, ##__VA_ARGS__)
     #define LogD(format, ...) \
-        if(MIUIDEBUG) printf("[MIUIBPFDEBUG] [%s] [%s] " format "\n", "DEBUG", LOG_TAG, ##__VA_ARGS__)
+        if(FS_DEBUG) printf("[CONFIG_FS_DEBUG] [%s] [%s] " format "\n", "DEBUG", LOG_TAG, ##__VA_ARGS__)
 #endif
