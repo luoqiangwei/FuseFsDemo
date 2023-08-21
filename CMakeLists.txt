@@ -2,6 +2,10 @@ CMAKE_MINIMUM_REQUIRED(VERSION 3.0)
 
 project(ConfigFs)
 
+set(CMAKE_C_COMPILER "/usr/bin/clang")
+set(CMAKE_CXX_COMPILER "/usr/bin/clang++")
+set(CMAKE_CXX_STANDARD 20)
+
 set(enableFuse3 Y)
 if(enableFuse3)
 add_compile_options(-Wall -Wextra -Wpedantic -D_FILE_OFFSET_BITS=64 -DHAVE_FUSE3 -DFUSE_USE_VERSION=35 -DMOUNT_POINT="/tmp/configfs")

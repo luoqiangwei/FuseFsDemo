@@ -1,0 +1,8 @@
+# File struct
+# file path:file contents
+/readme:config file system root dir
+/Libary/art_config:Android Runtime inhook help:\n wirte -h to the file start test
+/Libary/libc_config
+/Libary/libc/c20_config:Just for test new feature
+/SystemCall/open_config
+/SystemCall/write_config
